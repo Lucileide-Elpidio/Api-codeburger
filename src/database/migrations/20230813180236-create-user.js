@@ -1,6 +1,5 @@
-"use strict";
 
-{ import("sequelize-cli").Migration }
+"use strict";
 
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -55,3 +54,4 @@ module.exports = {
 
   }
 };
+
