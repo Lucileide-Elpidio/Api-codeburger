@@ -31,19 +31,17 @@ class SessionController {
             return response.status(400).json({ error: "Make sure your password or email are correct" })
         }
 
+        const token = jwt.sign({ id: user.id, name: user.name }, authConfig.secret, {
+            expiresIn: authConfig.expiresIn
+        });
 
-        return response.json(
-            {
-                id: user.id,
-                email,
-                name: user.name,
-                admin: user.admin,
-                token: jwt.sign({ id: user.id, name:user.name }, authConfig.secret,
-                    {
-                        expiresIn: authConfig.expiresIn
-                    }
-                )
-            })
+        return response.status(201).json({
+            id: user.id,
+            email,
+            name: user.name,
+            admin: user.admin,
+            token
+        });
 
     }
 }
