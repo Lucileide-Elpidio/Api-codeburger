@@ -10,7 +10,7 @@ class Category extends Model {
                url: {
                 type: Sequelize.VIRTUAL,
                 get() {
-                    return `htpp://localhost/category-file/${this.path}`
+                    return `http://localhost/category-file/${this.path}`
                 }
             }
             },
